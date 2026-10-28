@@ -7,41 +7,22 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("⚡ Proyecto_Dep")
-st.subheader("Sistema de registro y cálculo de mediciones")
-
-st.write(
-    """
-    Bienvenido al sistema de mediciones.
-
-    Esta plataforma permitirá al personal de campo y de oficina
-    registrar datos, realizar cálculos y consultar resultados.
-    """
+inicio = st.Page(
+    "pages/Inicio.py",
+    title="Inicio",
+    icon="🏠",
+    default=True
 )
 
-st.divider()
-
-st.markdown("### 📋 Módulos disponibles")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.info(
-        "**📏 Control de Mediciones**\n\n"
-        "Registra mediciones de campo, calcula diferencias "
-        "y revisa desviaciones."
-    )
-
-with col2:
-    st.info(
-        "**📊 Próximos módulos**\n\n"
-        "Aquí podremos agregar nuevos formularios, "
-        "indicadores y reportes."
-    )
-
-st.success(
-    "Aplicación operativa. Selecciona "
-    "'Mediciones' en el menú lateral para comenzar."
+mediciones = st.Page(
+    "pages/Mediciones.py",
+    title="Mediciones",
+    icon="📏"
 )
 
-st.caption("Proyecto_Dep | Prototipo inicial")
+navegacion = st.navigation(
+    [inicio, mediciones],
+    position="sidebar"
+)
+
+navegacion.run()
